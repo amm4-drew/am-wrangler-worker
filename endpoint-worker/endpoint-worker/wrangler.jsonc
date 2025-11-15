@@ -1,0 +1,26 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "endpoint-worker",
+	"main": "src/index.js",
+	"compatibility_date": "2025-11-15",
+	"routes": [
+		{
+			"pattern": "tunnel.amaylin.com/secure",
+			"zone_name": "amaylin.com"
+		}
+	],
+	"account_id": "b681cd340ff546a542ba5bcb4a473406",
+	"observability": {
+		"enabled": true
+	},
+	"r2_buckets": [
+		{
+			"bucket_name": "country-flags",
+			"binding": "country_flags"
+		}
+	]
+}
